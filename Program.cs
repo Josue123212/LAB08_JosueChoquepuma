@@ -13,6 +13,8 @@ builder.Services.AddDbContext<LinqexampleContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection") 
                       ?? "Host=localhost;Database=LINQExample;Username=postgres;Password=javier.com123;"));
 
+builder.Services.AddScoped<ILinqRepository, LinqRepository>();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

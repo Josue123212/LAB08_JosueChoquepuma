@@ -14,5 +14,11 @@ public class LinqController : ControllerBase
         _repository = repository;
     }
 
-    
+    // Ejercicio 1: Obtener clientes por nombre
+    [HttpGet("ejercicio1")]
+    public async Task<IActionResult> GetEjercicio1([FromQuery] string name = "Juan")
+    {
+        var clients = await _repository.GetClientsByNameAsync(name);
+        return Ok(clients);
+    }
 }
