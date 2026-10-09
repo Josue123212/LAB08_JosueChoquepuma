@@ -1,15 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 using LAB08_JosueChoquepuma.Models;
+using LAB08_JosueChoquepuma.Repositories;
+using LAB08_JosueChoquepuma.Repositories.Implements;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-
-// Swagger básico
 builder.Services.AddSwaggerGen();
 
-// 1. DbContext con PostgreSQL (LINQExample)
 builder.Services.AddDbContext<LinqexampleContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection") 
                       ?? "Host=localhost;Database=LINQExample;Username=postgres;Password=javier.com123;"));
