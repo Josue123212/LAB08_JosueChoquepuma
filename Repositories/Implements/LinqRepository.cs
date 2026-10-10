@@ -110,4 +110,13 @@ public class LinqRepository : ILinqRepository
             .Distinct()
             .ToListAsync();
     }
+    // Ejercicio 12
+    public async Task<IEnumerable<string>> GetClientsByProductIdAsync(int productId)
+    {
+        return await _context.Orderdetails
+            .Where(od => od.Productid == productId)
+            .Select(od => od.Order.Client.Name)
+            .Distinct()
+            .ToListAsync();
+    }
 }

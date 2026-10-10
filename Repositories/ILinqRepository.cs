@@ -27,4 +27,6 @@ public interface ILinqRepository
     Task<IEnumerable<OrderProductDetailDto>> GetAllOrdersWithDetailsAsync();
     // Ejercicio 11: Obtener nombres de productos vendidos a un cliente específico
     Task<IEnumerable<string>> GetProductsByClientIdAsync(int clientId);
+    // Ejercicio 12: Obtener nombres de clientes que compraron un producto específico
+    Task<IEnumerable<string>> GetClientsByProductIdAsync(int productId);
 }

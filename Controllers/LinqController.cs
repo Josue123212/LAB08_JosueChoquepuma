@@ -97,4 +97,11 @@ public class LinqController : ControllerBase
         var products = await _repository.GetProductsByClientIdAsync(clientId);
         return Ok(products);
     }
+    // Ejercicio 12: Obtener clientes que compraron un producto específico
+    [HttpGet("ejercicio12")]
+    public async Task<IActionResult> GetEjercicio12([FromQuery] int productId = 2)
+    {
+        var clients = await _repository.GetClientsByProductIdAsync(productId);
+        return Ok(clients);
+    }
 }
