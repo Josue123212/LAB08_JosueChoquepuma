@@ -75,4 +75,17 @@ public class LinqRepository : ILinqRepository
             .Where(p => string.IsNullOrEmpty(p.Description))
             .ToListAsync();
     }
+    // Ejercicio 9
+    public async Task<ClientOrderCountDto?> GetClientWithMostOrdersAsync()
+    {
+        return await _context.Orders
+            .GroupBy(o => o.Clientid)
+            .OrderByDescending(g => g.Count())
+            .Select(g => new ClientOrderCountDto
+            {
+                ClientId = g.Key,
+                OrderCount = g.Count()
+            })
+            .FirstOrDefaultAsync();
+    }
 }

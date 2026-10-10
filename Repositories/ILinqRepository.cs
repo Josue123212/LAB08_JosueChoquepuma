@@ -21,4 +21,6 @@ public interface ILinqRepository
     Task<decimal> GetAverageProductPriceAsync();
     // Ejercicio 8: Productos sin descripción
     Task<IEnumerable<Product>> GetProductsWithoutDescriptionAsync();
+    // Ejercicio 9: Cliente con mayor número de pedidos
+    Task<ClientOrderCountDto?> GetClientWithMostOrdersAsync();
 }

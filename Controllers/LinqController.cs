@@ -73,4 +73,14 @@ public class LinqController : ControllerBase
         var products = await _repository.GetProductsWithoutDescriptionAsync();
         return Ok(products);
     }
+    // Ejercicio 9: Obtener el cliente con mayor número de pedidos
+    [HttpGet("ejercicio9")]
+    public async Task<IActionResult> GetEjercicio9()
+    {
+        var clientOrderCount = await _repository.GetClientWithMostOrdersAsync();
+        if (clientOrderCount == null)
+            return NotFound("No se encontraron pedidos.");
+
+        return Ok(clientOrderCount);
+    }
 }
