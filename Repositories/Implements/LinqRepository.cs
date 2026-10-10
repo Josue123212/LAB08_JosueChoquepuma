@@ -19,4 +19,11 @@ public class LinqRepository : ILinqRepository
             .Where(c => c.Name.ToLower().StartsWith(name.ToLower()))
             .ToListAsync();
     }
+    // Ejercicio 2
+    public async Task<IEnumerable<Product>> GetProductsWithPriceGreaterThanAsync(decimal minPrice)
+    {
+        return await _context.Products
+            .Where(p => p.Price > minPrice)
+            .ToListAsync();
+    }
 }

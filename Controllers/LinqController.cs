@@ -21,4 +21,11 @@ public class LinqController : ControllerBase
         var clients = await _repository.GetClientsByNameAsync(name);
         return Ok(clients);
     }
+    // Ejercicio 2: Obtener productos con precio mayor a un valor
+    [HttpGet("ejercicio2")]
+    public async Task<IActionResult> GetEjercicio2([FromQuery] decimal minPrice = 20)
+    {
+        var products = await _repository.GetProductsWithPriceGreaterThanAsync(minPrice);
+        return Ok(products);
+    }
 }
