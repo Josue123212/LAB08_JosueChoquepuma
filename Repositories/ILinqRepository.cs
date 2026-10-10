@@ -13,4 +13,6 @@ public interface ILinqRepository
     Task<IEnumerable<ProductOrderDetailDto>> GetProductsByOrderIdAsync(int orderId);
     // Ejercicio 4: Cantidad total de productos por orden
     Task<int> GetTotalQuantityByOrderIdAsync(int orderId);
+    // Ejercicio 5: Obtener el producto más caro
+    Task<Product?> GetMostExpensiveProductAsync();
 }

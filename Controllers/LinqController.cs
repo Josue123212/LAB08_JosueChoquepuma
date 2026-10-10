@@ -42,4 +42,14 @@ public class LinqController : ControllerBase
         var totalQuantity = await _repository.GetTotalQuantityByOrderIdAsync(orderId);
         return Ok(new { OrderId = orderId, TotalQuantity = totalQuantity });
     }
+    // Ejercicio 5: Obtener el producto más caro
+    [HttpGet("ejercicio5")]
+    public async Task<IActionResult> GetEjercicio5()
+    {
+        var product = await _repository.GetMostExpensiveProductAsync();
+        if (product == null)
+            return NotFound("No se encontraron productos.");
+
+        return Ok(product);
+    }
 }

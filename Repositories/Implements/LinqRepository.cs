@@ -47,4 +47,11 @@ public class LinqRepository : ILinqRepository
             .Select(od => od.Quantity)
             .SumAsync();
     }
+    // Ejercicio 5
+    public async Task<Product?> GetMostExpensiveProductAsync()
+    {
+        return await _context.Products
+            .OrderByDescending(p => p.Price)
+            .FirstOrDefaultAsync();
+    }
 }
