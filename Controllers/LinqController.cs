@@ -83,4 +83,11 @@ public class LinqController : ControllerBase
 
         return Ok(clientOrderCount);
     }
+    // Ejercicio 10: Obtener todos los pedidos y sus detalles
+    [HttpGet("ejercicio10")]
+    public async Task<IActionResult> GetEjercicio10()
+    {
+        var orderDetails = await _repository.GetAllOrdersWithDetailsAsync();
+        return Ok(orderDetails);
+    }
 }

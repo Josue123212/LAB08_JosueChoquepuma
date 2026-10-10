@@ -88,4 +88,17 @@ public class LinqRepository : ILinqRepository
             })
             .FirstOrDefaultAsync();
     }
+    // Ejercicio 10
+    public async Task<IEnumerable<OrderProductDetailDto>> GetAllOrdersWithDetailsAsync()
+    {
+        return await _context.Orderdetails
+            .Include(od => od.Product)
+            .Select(od => new OrderProductDetailDto
+            {
+                OrderId = od.Orderid,
+                ProductName = od.Product.Name,
+                Quantity = od.Quantity
+            })
+            .ToListAsync();
+    }
 }
