@@ -28,4 +28,11 @@ public class LinqController : ControllerBase
         var products = await _repository.GetProductsWithPriceGreaterThanAsync(minPrice);
         return Ok(products);
     }
+    // Ejercicio 3
+    [HttpGet("ejercicio3")]
+    public async Task<IActionResult> GetEjercicio3([FromQuery] int orderId = 1)
+    {
+        var details = await _repository.GetProductsByOrderIdAsync(orderId);
+        return Ok(details);
+    }
 }

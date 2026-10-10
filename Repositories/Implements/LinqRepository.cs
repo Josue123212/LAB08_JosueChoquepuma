@@ -1,5 +1,6 @@
 ﻿using LAB08_JosueChoquepuma.Models;
 using Microsoft.EntityFrameworkCore;
+using LAB08_JosueChoquepuma.DTOs;
 
 namespace LAB08_JosueChoquepuma.Repositories.Implements;
 
@@ -24,6 +25,18 @@ public class LinqRepository : ILinqRepository
     {
         return await _context.Products
             .Where(p => p.Price > minPrice)
+            .ToListAsync();
+    }
+    public async Task<IEnumerable<ProductOrderDetailDto>> GetProductsByOrderIdAsync(int orderId)
+    {
+        return await _context.Orderdetails
+            .Include(od => od.Product)
+            .Where(od => od.Orderid == orderId)
+            .Select(od => new ProductOrderDetailDto
+            {
+                ProductName = od.Product.Name,
+                Quantity = od.Quantity
+            })
             .ToListAsync();
     }
 }

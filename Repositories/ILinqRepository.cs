@@ -1,4 +1,5 @@
-﻿using LAB08_JosueChoquepuma.Models;
+﻿using LAB08_JosueChoquepuma.DTOs;
+using LAB08_JosueChoquepuma.Models;
 
 namespace LAB08_JosueChoquepuma.Repositories;
 
@@ -8,4 +9,6 @@ public interface ILinqRepository
     Task<IEnumerable<Client>> GetClientsByNameAsync(string name);
     // Ejercicio 2: Obtener productos con precio mayor a un valor específico
     Task<IEnumerable<Product>> GetProductsWithPriceGreaterThanAsync(decimal minPrice);
+    // Ejercicio 3: Obtener detalles proyectados (Nombre y Cantidad) de una orden
+    Task<IEnumerable<ProductOrderDetailDto>> GetProductsByOrderIdAsync(int orderId);
 }
