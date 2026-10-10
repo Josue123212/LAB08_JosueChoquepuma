@@ -61,4 +61,11 @@ public class LinqRepository : ILinqRepository
             .Where(o => o.Orderdate > date)
             .ToListAsync();
     }
+    // Ejercicio 7
+    public async Task<decimal> GetAverageProductPriceAsync()
+    {
+        return await _context.Products
+            .Select(p => p.Price)
+            .AverageAsync();
+    }
 }
