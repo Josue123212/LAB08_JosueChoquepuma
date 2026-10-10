@@ -25,4 +25,6 @@ public interface ILinqRepository
     Task<ClientOrderCountDto?> GetClientWithMostOrdersAsync();
     // Ejercicio 10: Obtener todos los pedidos con sus detalles
     Task<IEnumerable<OrderProductDetailDto>> GetAllOrdersWithDetailsAsync();
+    // Ejercicio 11: Obtener nombres de productos vendidos a un cliente específico
+    Task<IEnumerable<string>> GetProductsByClientIdAsync(int clientId);
 }

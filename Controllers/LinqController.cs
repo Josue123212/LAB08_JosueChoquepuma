@@ -90,4 +90,11 @@ public class LinqController : ControllerBase
         var orderDetails = await _repository.GetAllOrdersWithDetailsAsync();
         return Ok(orderDetails);
     }
+    // Ejercicio 11: Obtener productos vendidos a un cliente
+    [HttpGet("ejercicio11")]
+    public async Task<IActionResult> GetEjercicio11([FromQuery] int clientId = 1)
+    {
+        var products = await _repository.GetProductsByClientIdAsync(clientId);
+        return Ok(products);
+    }
 }
