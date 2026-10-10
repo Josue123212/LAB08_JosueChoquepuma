@@ -54,4 +54,11 @@ public class LinqRepository : ILinqRepository
             .OrderByDescending(p => p.Price)
             .FirstOrDefaultAsync();
     }
+    // Ejercicio 6
+    public async Task<IEnumerable<Order>> GetOrdersAfterDateAsync(DateTime date)
+    {
+        return await _context.Orders
+            .Where(o => o.Orderdate > date)
+            .ToListAsync();
+    }
 }

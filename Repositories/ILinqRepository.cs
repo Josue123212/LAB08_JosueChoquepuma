@@ -15,4 +15,6 @@ public interface ILinqRepository
     Task<int> GetTotalQuantityByOrderIdAsync(int orderId);
     // Ejercicio 5: Obtener el producto más caro
     Task<Product?> GetMostExpensiveProductAsync();
+    // Ejercicio 6: Obtener órdenes posteriores a una fecha especificada
+    Task<IEnumerable<Order>> GetOrdersAfterDateAsync(DateTime date);
 }

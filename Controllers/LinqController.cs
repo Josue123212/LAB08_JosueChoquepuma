@@ -52,4 +52,11 @@ public class LinqController : ControllerBase
 
         return Ok(product);
     }
+    // Ejercicio 6: Obtener pedidos posteriores a una fecha
+    [HttpGet("ejercicio6")]
+    public async Task<IActionResult> GetEjercicio6([FromQuery] DateTime date)
+    {
+        var orders = await _repository.GetOrdersAfterDateAsync(date);
+        return Ok(orders);
+    }
 }
