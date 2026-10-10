@@ -11,4 +11,6 @@ public interface ILinqRepository
     Task<IEnumerable<Product>> GetProductsWithPriceGreaterThanAsync(decimal minPrice);
     // Ejercicio 3: Obtener detalles proyectados (Nombre y Cantidad) de una orden
     Task<IEnumerable<ProductOrderDetailDto>> GetProductsByOrderIdAsync(int orderId);
+    // Ejercicio 4: Cantidad total de productos por orden
+    Task<int> GetTotalQuantityByOrderIdAsync(int orderId);
 }

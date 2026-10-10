@@ -35,4 +35,11 @@ public class LinqController : ControllerBase
         var details = await _repository.GetProductsByOrderIdAsync(orderId);
         return Ok(details);
     }
+    // Ejercicio 4: Cantidad total de productos en una orden específica
+    [HttpGet("ejercicio4")]
+    public async Task<IActionResult> GetEjercicio4([FromQuery] int orderId = 1)
+    {
+        var totalQuantity = await _repository.GetTotalQuantityByOrderIdAsync(orderId);
+        return Ok(new { OrderId = orderId, TotalQuantity = totalQuantity });
+    }
 }

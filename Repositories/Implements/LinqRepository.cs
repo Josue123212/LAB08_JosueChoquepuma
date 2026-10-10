@@ -39,4 +39,12 @@ public class LinqRepository : ILinqRepository
             })
             .ToListAsync();
     }
+    // Ejercicio 4
+    public async Task<int> GetTotalQuantityByOrderIdAsync(int orderId)
+    {
+        return await _context.Orderdetails
+            .Where(od => od.Orderid == orderId)
+            .Select(od => od.Quantity)
+            .SumAsync();
+    }
 }
