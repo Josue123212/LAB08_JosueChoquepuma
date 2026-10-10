@@ -66,4 +66,11 @@ public class LinqController : ControllerBase
         var averagePrice = await _repository.GetAverageProductPriceAsync();
         return Ok(new { AveragePrice = averagePrice });
     }
+    // Ejercicio 8: Obtener productos sin descripción
+    [HttpGet("ejercicio8")]
+    public async Task<IActionResult> GetEjercicio8()
+    {
+        var products = await _repository.GetProductsWithoutDescriptionAsync();
+        return Ok(products);
+    }
 }

@@ -19,4 +19,6 @@ public interface ILinqRepository
     Task<IEnumerable<Order>> GetOrdersAfterDateAsync(DateTime date);
     // Ejercicio 7: Promedio de precio de los productos
     Task<decimal> GetAverageProductPriceAsync();
+    // Ejercicio 8: Productos sin descripción
+    Task<IEnumerable<Product>> GetProductsWithoutDescriptionAsync();
 }

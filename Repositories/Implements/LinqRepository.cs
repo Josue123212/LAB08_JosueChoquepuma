@@ -68,4 +68,11 @@ public class LinqRepository : ILinqRepository
             .Select(p => p.Price)
             .AverageAsync();
     }
+    // Ejercicio 8
+    public async Task<IEnumerable<Product>> GetProductsWithoutDescriptionAsync()
+    {
+        return await _context.Products
+            .Where(p => string.IsNullOrEmpty(p.Description))
+            .ToListAsync();
+    }
 }
